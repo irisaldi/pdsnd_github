@@ -170,11 +170,11 @@ def info_prompt(city, month, day):
 
     # Prompting informations for user based on their choices.
     print("-" * 10, end=' ')
-    print("City: {}".format(city), end=' ')
+    print(f"City: {city}", end=' ')
     if month != None:
-        print("|| Month: {}".format(month), end=' ')
+        print(f"|| Month: {month}", end=' ')
     if day != None:
-        print("|| Day: {}".format(day), end=' ')
+        print(f"|| Day: {day}", end=' ')
     print("-" * 10)    
 
 def data_preview(df):
@@ -209,7 +209,7 @@ def data_preview(df):
             while finish < len(index):
                     print("\n")
                     print(df.iloc[index[start] : index[finish]])
-                    print("Page {} of {}".format(finish, len(index)))
+                    print(f"Page {finish} of {len(index)}")
                     next_preview = input("\nPress anything for more or L/l to leave the preview mode: ").lower()
                     if next_preview == 'l':
                         break
@@ -219,7 +219,7 @@ def data_preview(df):
             # In case of 5 is not factor of rows (rows % 5 != 0), display the last rest row(s).
             else:
                 print(df.iloc[index[start]:])
-                print("Page {} of {}".format(finish, len(index)))
+                print(f"Page {finish} of {len(index)}")
     except IndexError:
         print("No preview available!")
 
@@ -251,21 +251,21 @@ def time_stats(df, month, day):
         # Looking for the most common month.
         if month == None:
             popular_month = df['Month'].mode()[0]
-            print("\tThe most frequent month to travel: {}".format(popular_month))
+            print(f"\tThe most frequent month to travel: {popular_month}")
 
         # Looking for the most common day of week.
         if day == None:
             popular_day = df['Day of Week'].mode()[0]
-            print("\tThe most frequent day to travel: {}".format(popular_day))
+            print(f"\tThe most frequent day to travel: {popular_day}")
 
         # Looking for the most common start hour.
         popular_start_time = df['Start Time'].dt.hour.mode()[0]
-        print("\tThe most frequent hour of day to travel: {} O'Clock".format(popular_start_time))
+        print(f"\tThe most frequent hour of day to travel: {popular_start_time} O'Clock")
 
     else:
         print("No data available")
     
-    print("\n\t*This took {} seconds\n".format(time.time() - start_time))
+    print(f"\n\t*This took {time.time() - start_time} seconds\n")
 
 def station_stats(df):
     """
@@ -291,20 +291,20 @@ def station_stats(df):
     if df.size != 0:
         # Looking for the most commonly used start station.
         popular_start = df['Start Station'].mode()[0]
-        print("\tThe most popular start station: {}".format(popular_start))
+        print(f"\tThe most popular start station: {popular_start}")
 
         # Looking for the most commonly used end station.
         popular_end = df['End Station'].mode()[0]
-        print("\tThe most popular end station: {}".format(popular_end))
+        print(f"\tThe most popular end station: {popular_end}")
 
         # Looking for the most frequent combination of start station and end station trip.
         popular_station_pair = df.groupby(['Start Station'])['End Station'].value_counts().idxmax()
-        print("\tThe most popular start and end stations pair: {} -> {}".format(str(popular_station_pair[0]), str(popular_station_pair[1])))
+        print(f"\tThe most popular start and end stations pair: {str(popular_station_pair[0])} -> {str(popular_station_pair[1])}")
 
     else:
         print("No data available")
     
-    print("\n\t*This took {} seconds\n".format(time.time() - start_time))
+    print(f"\n\t*This took {time.time() - start_time} seconds\n")
 
 def trip_duration_stats(df):
     """
@@ -330,16 +330,16 @@ def trip_duration_stats(df):
     if df.size != 0:
         # Looking for the total traveling done in day(s).
         total_duration = pd.to_timedelta(df['Trip Duration'].sum(), unit='s')
-        print("\tThe total traveling done: {}".format(total_duration))
+        print(f"\tThe total traveling done: {total_duration}")
 
         # Looking for the average travel time for each trip in day(s).
         average_duration = pd.to_timedelta(df['Trip Duration'].mean(), unit='s')
-        print("\tThe average time spent for each trip: {}".format(average_duration))
+        print(f"\tThe average time spent for each trip: {average_duration}")
 
     else:
         print("No data available")
     
-    print("\n\t*This took {} seconds\n".format(time.time() - start_time))    
+    print(f"\n\t*This took {time.time() - start_time} seconds\n")    
 
 def user_stats(df):
     """
@@ -368,31 +368,31 @@ def user_stats(df):
             user_types = df['User Type'].value_counts()
             print("\tUser type categories:")
             for user, count in user_types.items():
-                print("\t\t{}: {}".format(user, count))
+                print(f"\t\t{user}: {count}")
 
             # Counting the amounts of users for each gender category.
             user_genders = df['Gender'].value_counts()
             print("\tUser gender categories:")
             for user, count in user_genders.items():
-                print("\t\t{}: {}".format(user, count))
+                print(f"\t\t{user}: {count}")
 
             # Looking for the oldest user(s).
             oldest_user = df['Birth Year'].min()
-            print("\tOldest user(s) was(were) born in {}".format(int(oldest_user)))
+            print(f"\tOldest user(s) was(were) born in {oldest_user}")
 
             # Looking for the youngest user(s).
             youngest_user = df['Birth Year'].max()
-            print("\tYoungest user(s) was(were) born in {}".format(int(youngest_user)))
+            print(f"\tYoungest user(s) was(were) born in {youngest_user}")
 
             # Looking for the most common birth of year among the users.
             common_yob = df['Birth Year'].mode()[0]
-            print("\tThe most common year of birth: {}".format(int(common_yob)))
+            print(f"\tThe most common year of birth: {common_yob}")
         except KeyError:
             pass
     else:
         print("No data available")
     
-    print("\n\t*This took {} seconds\n".format(time.time() - start_time))
+    print(f"\n\t*This took {time.time() - start_time} seconds\n")
 
 def main():
     """
