@@ -5,4 +5,4 @@ channels:
 dependencies:
   - python=3.11.6
   - pandas=2.1.2
-  - matplotlib
+  - numpy=1.26.0
