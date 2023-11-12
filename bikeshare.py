@@ -54,44 +54,45 @@ def get_filters():
     while True:
         # Ask the user whether they want to apply time filter to the dataset.
         filter = input("Would you like to filter the data by month, day, both or not at all? Press Enter for no time filter! ").lower()
-        if filter == 'both':
-            while True:
-                month = input("\tWhich month? Please write the month name completely: ").lower()
-                if month in MONTHS:
-                    while True:
-                        day = input("\tWhich day? Please write the day name completely: ").lower()
-                        if day in DAYS:
-                            return CITY_DATA[city], month.title(), day.title()
-                            break
-                        else:
-                            print(f"\tUnknown day '{day}'!")
-                    break
-                else:
-                    print(f"\tUnknown month '{month}'!")
-            break
-        elif filter == 'month':
-            while True:
-                month = input("\tWhich month? Please write the month name completely: ").lower()
-                if month in MONTHS:
-                    return CITY_DATA[city], month.title(), None
-                    break
-                else:
-                    print(f"\tUnknown month '{month}'!")
-            break
-        elif filter == 'day':
-            while True:
-                day = input("\tWhich day? Please write the day name completely: ").lower()
-                if day in DAYS:
-                    return CITY_DATA[city], None, day.title()
-                    break
-                else:
-                    print(f"\tUnknown day '{day}'!")
-            break
-        elif filter == '':
-            return CITY_DATA[city], None, None
-            break
-        else:
-            print(f"Unknown filter '{filter}'!")
+        match filter:
+            case 'both':
+                while True:
+                    month = input("\tWhich month? Please write the month name completely: ").lower()
+                    if month in MONTHS:
+                        while True:
+                            day = input("\tWhich day? Please write the day name completely: ").lower()
+                            if day in DAYS:
+                                return CITY_DATA[city], month.title(), day.title()
+                                break
+                            else:
+                                print(f"\tUnknown day '{day}'!")
+                        break
+                    else:
+                        print(f"\tUnknown month '{month}'!")
+                break
+            case 'month':
+                while True:
+                    month = input("\tWhich month? Please write the month name completely: ").lower()
+                    if month in MONTHS:
+                        return CITY_DATA[city], month.title(), None
+                        break
+                    else:
+                        print(f"\tUnknown month '{month}'!")
+                break
+            case 'day':
+                while True:
+                    day = input("\tWhich day? Please write the day name completely: ").lower()
+                    if day in DAYS:
+                        return CITY_DATA[city], None, day.title()
+                        break
+                    else:
+                        print(f"\tUnknown day '{day}'!")
+                break
+            case '':
+                return CITY_DATA[city], None, None
+                break
+            case _:
+                print(f"Unknown filter '{filter}'!")
 
 def load_data(city, month, day):
     """
