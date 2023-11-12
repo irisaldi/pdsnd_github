@@ -12,11 +12,11 @@ Crunch some stats out of [**<ins>Divvy Bikeshare</ins>**](https://en.wikipedia.o
 
 The statistic part is made available by utilizing [**<ins>Python</ins>**](https://www.python.org) programming language and its powerful data manipulation tool [**<ins>pandas</ins>**](https://pandas.pydata.org).
 
->   **:memo: IMPORTANT NOTE**: At the moment, our available data spans from January to June 2017.
+>   :memo: **IMPORTANT NOTE**: At the moment, our available data spans from January to June 2017. :memo:
 
 #### Getting Started
 
-**:warning: This guideline hasn't been tested in MacOs/Linux**
+>   :warning: **WARNING**: This guideline hasn't been tested in MacOs/Linux. :warning:
 
 1. **Download/Clone Repository**
    
@@ -60,9 +60,9 @@ The statistic part is made available by utilizing [**<ins>Python</ins>**](https:
 
 The code requires these three files stored in your local repository:
 
-+ chicago.csv
-+ new_york_city.csv
-+ washington.csv
++ `chicago.csv`
++ `new_york_city.csv`
++ `washington.csv`
 
 Get the files [**here**](https://www.example.com/divvy-files)
 
