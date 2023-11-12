@@ -1,0 +1,8 @@
+name: nano_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11.6
+  - pandas=2.1.2
+  - numpy=1.26.0
