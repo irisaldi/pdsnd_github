@@ -10,7 +10,7 @@ Crunch some stats out of [**<ins>Divvy Bikeshare</ins>**](https://en.wikipedia.o
 
 **Divvy Bikeshare Stat** is a statistic project based on the *Divvy bicycle sharing system* data in Chicago, New York City, and Washington. For future business development, it is necessary to be able to run analysis on data of these bikes and its users. On this regard was this project initiated.
 
-The statistic part is made available by utilizing [**<ins>Python</ins>**](https://www.python.org) programming language and its powerful data manipulation tool [**<ins>pandas</ins>**](https://pandas.pydata.org).
+The statistic part is made available by utilizing [**<ins>Python</ins>**](https://www.python.org) programming language and its powerful data manipulation tool [**<ins>pandas</ins>**](https://pandas.pydata.org) and [**<ins>numpy</ins>**](https://numpy.org).
 
 >   :memo: **IMPORTANT NOTE**: At the moment, our available data spans from January to June 2017. :memo:
 
@@ -73,3 +73,4 @@ Get the files [**here**](https://www.example.com/divvy-files)
 ### Credits
 
 + Many thanks for [@wiraDKP](https://github.com/wiraDKP) for most of the inspirations.
++ Thanks to [@lukas-h](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba) for providing *Markdown License Badges*.
